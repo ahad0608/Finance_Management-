@@ -38,6 +38,24 @@ def delete(sno):
     db.session.commit()
     return redirect('/')
 
+@app.route("/update/<int:sno>",methods=['GET', 'POST'])
+def update(sno):
+    if request.method=='POST':
+        titl= request.form['title']
+        pric= request.form['price']
+        fimaupd = FiMa.query.filter_by(sno=sno).first()
+        fimaupd.title = titl
+        fimaupd.price = pric
+
+        db.session.add(fimaupd)
+        db.session.commit()
+        return redirect('/')
+        
+
+    fimaupd = FiMa.query.filter_by(sno=sno).first()
+    return render_template('update.html',fima=fimaupd)
+    
+
 if __name__ =="__main__":
     app.run(debug=True,port=8000)
 

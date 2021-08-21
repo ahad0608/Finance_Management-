@@ -21,6 +21,7 @@
   </form>
 </div>
 <div class="container my-3">
+  <h2 class="text-dark">Your Finance</h2>
   <table class="table">
     <thead>
       <tr>
@@ -40,7 +41,9 @@
         <td>{{fima.title}}</td>
         <td>{{fima.price}}</td>
         <td>
-          <a href="/delete/{{fima.sno}}" type="button" class="btn btn-outline-danger">Delete</button>
+          <a href="/delete/{{fima.sno}}" type="button" class="btn btn-outline-danger btn-sm me-md-2">Delete</button>
+          <a href="/update/{{fima.sno}}" type="button" class="btn btn-outline-warning btn-sm">Update</button>
+
 
         </td>
       </tr>
