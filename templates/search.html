@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block body %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">S.No</th>
+        <th scope="col">Date</th>
+        <th scope="col">Products/Services</th>
+        <th scope="col">Price</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--We have used jinja snippet for fillling out tables-->
+      {% for fimas in fima %}
+      <tr>
+        <th scope="row">{{loop.index}}</th>
+        <td>{{fimas.date_created}}</td>
+        <td>{{fimas.title}}</td>
+        <td>{{fimas.price}}</td>
+        <td>
+          <a href="/delete/{{fima.sno}}" type="button" class="btn btn-outline-danger btn-sm me-md-2">Delete</button>
+          <a href="/update/{{fima.sno}}" type="button" class="btn btn-outline-warning btn-sm">Update</button>
+
+
+        </td>
+      </tr>
+      {% endfor %}
+
+
+    </tbody>
+  </table>
+
+  {% endblock body %}

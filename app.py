@@ -55,6 +55,19 @@ def update(sno):
     fimaupd = FiMa.query.filter_by(sno=sno).first()
     return render_template('update.html',fima=fimaupd)
 
+@app.route("/search/<string:searchquery>") 
+def search(searchquery):
+    searchquery = request.args.get('searchquery')
+    if searchquery:
+        fimas = FiMa.query.filter(FiMa.title.contains(searchquery))
+        
+
+
+    else:
+        fimas = FiMa.query.all()
+    
+    return render_template('search.html',fima=fimas)        
+
 
 
 if __name__ =="__main__":
